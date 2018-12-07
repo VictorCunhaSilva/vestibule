@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Vestibule!</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="menu-wrapper">
+		<div id="menu" class="container">
+			<ul>
+				<li style="float: left" class="current_page_item"><a class="menuTitulo" href="index.html">Vestibule!</a></li>
+				<li class="current_page_item"><a href="index.html">Pagina Principal</a></li>
+				<li><a href="loginCadastrar.html">Log In / Cadastrar</a></li>
+				<li><a href="upload.html">Upload</a></li>
+				<li><input id="pesquisa" type="text" onkeypress="pesquisarAula() "placeholder="Search.." ></li>
+			</ul>
+		</div>
+	</div>
+	<div id="logo" class="container">
+		<h1>Curso de CSS</h1>
+	</div>
+	<div id="page" class="container">
+		<div>
+			<div class="entry">
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="tbox1">
+			<div>
+				<div>
+					<iframe width="1000" height="500"
+							src="https://www.youtube.com/embed/mbDZArsjqFo">
+					</iframe>
+					<br>
+					<label for="nome">Autor: Victor</label><br>
+					<label id="view" for="nome"></label>
+					<br><br>
+					<p>Neste curso de CSS conheça como importar e incorporá-lo no HTML. Além disso você aprenderá a escrever seus primeiros códigos e conhecer as principais propriedades e atributos. Aprenda também a inserir efeitos em blocos de texto, como por exemplo a capitular, através dos pseudo-elementos</p>
+					<br>
+					<div id="usuario">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- separar divs-->
+	<br>
+		<br>
+			<br>
+
+
+	<div class="container">
+		<div class="tbox2">
+			<div>
+				<div>
+					  <form >
+					    <label for="nome">Nome</label>
+					    <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+							<br>
+					    <label for="comentario">Comentario: </label>
+					    <textarea id="comentario" name="subject" placeholder="Escreva seu comentario aqui" style="height:200px"></textarea>
+							<br>
+					    <button type="button" onclick="setComentario()">Enviar comentario</button>
+					  </form>
+					</div>
+				</div>
+			</div>
+	 </div>
+</div>
+<div id="footer">
+	<p>© 2018 All rights reserved.</p>
+</div>
+<!-- end #footer -->
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script>
+				var x;
+				var node;
+				var textnode;
+		        function getSite() {
+		            fetch(`http://cors-anywhere.herokuapp.com/https://flask-sistemas-distribuidos-victorcunha.c9users.io/comentarios`)
+		            .then(result => {
+		                console.log(result);
+		                return result.json();
+		            })
+		            .then(data => {
+		                console.log(data);
+						
+						var i; //loop para percorrer o primeiro array
+						for (i = 0; i < data.length; i++) { 
+							if(data[i][1]=="css"){
+								//exibe usuario
+								node = document.createElement("h4");
+								console.log(data[i]);
+								x = "Usuario: "+data[i][2];
+								textnode = document.createTextNode(x);
+								node.appendChild(textnode);
+								document.getElementById("usuario").appendChild(node);
+								
+								//exibir comentarios
+								node = document.createElement("p");
+								console.log(data[i]);
+								x = "Comentario: "+data[i][3];
+								textnode = document.createTextNode(x);
+								node.appendChild(textnode);
+								document.getElementById("usuario").appendChild(node);
+							}
+							
+						}
+										//const obj = data.nomedatabelagenerica[0];
+		                console.log(`${data[0][1]}, ${data[0][2]} e ${data[0][3]}.`);
+						
+						console.log(x);
+		            })
+		            .catch(error => console.log(error));
+		        }
+		        getSite();
+				
+				//função de contador de views
+				function getView() {
+		            fetch(`http://cors-anywhere.herokuapp.com/https://flask-sistemas-distribuidos-victorcunha.c9users.io/videos/css`)
+		            .then(result => {
+		                console.log(result);
+		                return result.json();
+		            })
+		            .then(data => {
+		                console.log(data);
+						
+						var cont = data;
+						document.getElementById("view").innerHTML = "Visualizações: " + cont;
+						
+		            })
+		            .catch(error => console.log(error));
+		        }
+		        getView();
+				
+				//função de cadastrar comentario
+				function setComentario() {
+		            
+					var nome = document.getElementById('nome').value;
+					var comentario = document.getElementById('comentario').value;
+					
+					fetch(`http://cors-anywhere.herokuapp.com/https://flask-sistemas-distribuidos-victorcunha.c9users.io/comentarios/css/${nome}/${comentario}`);
+					
+					location.reload();
+		        }
+				
+				function pesquisarAula(e){
+	var pesq = document.getElementById('pesquisa').value;
+	console.log(pesq);
+	if(pesq == "Javascript" || pesq == "JavaScript" || pesq == "javascript" || pesq == "Java" || pesq == "JS" || pesq == "js"){
+		window.location.href="cursoJS.html"
+	}
+	else if(pesq == "Python" || pesq == "python" || pesq == "aula python"){
+		window.location.href="cursoPython.html"
+	}
+	else if(pesq == "css" || pesq == "CSS" || pesq == "aula de css" || pesq == "Aula CSS"){
+		window.location.href="cursoCSS.html"
+	}
+	else if(pesq == "ruby" || pesq == "ruby on rails" || pesq == "Ruby" || pesq == "Ruby on Rails"){
+		window.location.href="cursoRuby.html"
+	}
+	else if(pesq == "logica" || pesq == "logica de programação" || pesq == "Logica" || pesq == "Programação" || pesq == "programacao"){
+		window.location.href="cursoProgramacao.html"
+	}
+	else if(pesq == "bootstrap" || pesq == "boot" || pesq == "Bootstrap"){
+		window.location.href="cursoBootstrap.html"
+	}
+	/*else{
+		alert("Pesquisa não encontrada!")
+	}*/
+}
+		</script>
+
+</body>
+</html>

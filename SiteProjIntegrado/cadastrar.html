@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Vestibule!</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="menu-wrapper">
+		<div id="menu" class="container">
+			<ul>
+				<li class="current_page_item"><a href="index.html">Pagina Principal</a></li>
+				<li><a href="login.html">Log In</a></li>
+				<li><a href="cadastrar.html">Cadastrar</a></li>
+				<li><a href="upload.html">Upload</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="logo" class="container">
+		<h1>Cursos do Site</h1>
+	</div>
+	<div id="page" class="container">
+		<div>
+			<div class="entry">
+			</div>
+		</div>
+	</div>
+  <div id="three-column" class="container">
+		<div class="tbox1">
+			<div>
+        <div>
+        <form>
+             <label for="email"><b>Email</b></label>
+             <input type="text" id="Usuemail" placeholder="Entre com o Email" name="email" required>
+
+             <label for="uname"><b>Nome</b></label>
+             <input type="text" id="Usunome" placeholder="Enter Username" name="uname" required>
+
+             <label for="psw"><b>Password</b></label>
+             <input type="text" id="Ususenha" placeholder="Enter Password" name="psw" required>
+
+             <button type="button" onclick="setUsuario()">Cadastrar</button>
+          </form>
+        </div>
+			</div>
+		</div>
+  </div>
+</div>
+<div id="footer">
+	<p>© 2018 All rights reserved.</p>
+</div>
+<!-- end #footer -->
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<script>
+	
+	//função de cadastrar usuario
+	function setUsuario(){
+	
+		var email = document.getElementById('Usuemail').value;
+		var nome = document.getElementById('Usunome').value;
+		var senha = document.getElementById('Ususenha').value;
+		
+		try{
+			fetch(`http://cors-anywhere.herokuapp.com/https://flask-sistemas-distribuidos-victorcunha.c9users.io/cadastrausuario/${email}/${nome}/${senha}`);
+			
+			alert("Usuario cadastrado com sucesso!");
+		}
+		catch(err){
+			alert("Erro ao cadastrar usuario!");
+		}
+		
+	}
+	
+	</script>
+	
+</body>
+</html>

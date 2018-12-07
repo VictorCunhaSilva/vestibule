@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Vestibule!</title>
+<link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="menu-wrapper">
+		<div id="menu" class="container">
+			<ul>
+				<li style="float: left" class="current_page_item"><a class="menuTitulo" href="index.html">Vestibule!</a></li>
+				<li class="current_page_item"><a href="index.html">Pagina Principal</a></li>
+				<li><a href="loginCadastrar.html">Log In / Cadastrar</a></li>
+				<li><a href="upload.html">Upload</a></li>
+				<li><input id="pesquisa" type="text" onkeypress="pesquisarAula() "placeholder="Search.." ></li>
+			</ul>
+		</div>
+	</div>
+	<div id="logo" class="container">
+		<h1><a href="#">Cursos do Site</a></h1>
+	</div>
+	<div id="page" class="container">
+		<div>
+			<div class="entry">
+			</div>
+		</div>
+	</div>
+	<div id="three-column" class="container">
+		<div class="tbox1">
+			<div class="box-style box-style01">
+				<div class="content">
+					<div class="image"><img src="images/js.png" width="324" height="200" alt="" /></div>
+					<h2>Javascript</h2>
+					<p>Aqui iniciaremos nosso curso de Javascript. </p>
+					<a href="cursoJS.html" class="button">Iniciar Curso</a>
+				</div>
+			</div>
+		</div>
+		<div class="tbox2">
+			<div class="box-style box-style02">
+				<div class="content">
+					<div class="image"><img src="images/python.png" width="324" height="200" alt="" /></div>
+					<h2>Python</h2>
+					<p>Aqui Iniciaremos nosso curso de Python. </p>
+					<a href="cursoPython.html" class="button">Iniciar Curso</a>
+				</div>
+			</div>
+		</div>
+		<div class="tbox3">
+			<div class="box-style box-style03">
+				<div class="content">
+					<div class="image"><img src="images/cssimg.jpg" width="324" height="200" alt="" /></div>
+					<h2>CSS </h2>
+					<p>Aqui Iniciaremos nosso curso de CSS.</p>
+					<a href="cursoCSS.html" class="button">Iniciar Curso</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="three-column" class="container">
+		<div class="tbox1">
+			<div class="box-style box-style01">
+				<div class="content">
+					<div class="image"><img src="images/rubyonrails.jpg" width="324" height="200" alt="" /></div>
+					<h2>Ruby on Rails</h2>
+					<p>Aqui Iniciaremos nosso curso de Ruby on Rails. </p>
+					<a href="cursoRuby.html" class="button">Iniciar Curso</a>
+				</div>
+			</div>
+		</div>
+		<div class="tbox2">
+			<div class="box-style box-style02">
+				<div class="content">
+					<div class="image"><img src="images/logica.jpg" width="324" height="200" alt="" /></div>
+					<h2>Logica de Programação</h2>
+					<p>Aqui Iniciaremos nosso curso de Logica de Programação. </p>
+					<a href="cursoProgramacao.html" class="button">Iniciar Curso</a>
+				</div>
+			</div>
+		</div>
+		<div class="tbox3">
+			<div class="box-style box-style03">
+				<div class="content">
+					<div class="image"><img src="images/bootstrap.png" width="324" height="200" alt="" /></div>
+					<h2>Bootstrap </h2>
+					<p>Aqui Iniciaremos nosso curso de Bootstrap.</p>
+					<a href="cursoBootstrap.html" class="button">Iniciar Curso</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>© 2018 All rights reserved.</p>
+</div>
+
+<script>
+function pesquisarAula(e){
+	var pesq = document.getElementById('pesquisa').value;
+	console.log(pesq);
+	if(pesq == "Javascript" || pesq == "JavaScript" || pesq == "javascript" || pesq == "Java" || pesq == "JS" || pesq == "js"){
+		window.location.href="cursoJS.html"
+	}
+	else if(pesq == "Python" || pesq == "python" || pesq == "aula python"){
+		window.location.href="cursoPython.html"
+	}
+	else if(pesq == "css" || pesq == "CSS" || pesq == "aula de css" || pesq == "Aula CSS"){
+		window.location.href="cursoCSS.html"
+	}
+	else if(pesq == "ruby" || pesq == "ruby on rails" || pesq == "Ruby" || pesq == "Ruby on Rails"){
+		window.location.href="cursoRuby.html"
+	}
+	else if(pesq == "logica" || pesq == "logica de programação" || pesq == "Logica" || pesq == "Programação" || pesq == "programacao"){
+		window.location.href="cursoProgramacao.html"
+	}
+	else if(pesq == "bootstrap" || pesq == "boot" || pesq == "Bootstrap"){
+		window.location.href="cursoBootstrap.html"
+	}
+	/*else{
+		alert("Pesquisa não encontrada!")
+	}*/
+}
+
+
+</script>
+
+</body>
+</html>
